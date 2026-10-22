@@ -7,9 +7,8 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Kesintisiz çalışan alternatif Boho Bej Arka Plan Görseli */
-            background: url('https://pexels.com') no-repeat center center fixed;
-            background-size: cover;
+            /* İnternetten resim çekmeyen, kesin çalışan Boho Bej & Soft Krem renk geçişi */
+            background: linear-gradient(135deg, #efe6dd 0%, #dbcbbe 50%, #c3b0a0 100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -19,15 +18,13 @@
             padding: 20px;
         }
         .card {
-            background: rgba(255, 255, 255, 0.88); /* Kutunun arkasını hafifçe görünür kılar */
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            background: #ffffff;
             padding: 40px;
             border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
             max-width: 500px;
             width: 100%;
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            border: 1px solid #eaddcf;
         }
         h1 {
             color: #5c4d4d;
@@ -65,11 +62,13 @@
     </style>
 </head>
 <body>
+
     <div class="card">
         <h1>✨ Your Daily Reminder ✨</h1>
         <div class="message" id="msg">Loading your reminder...</div>
         <button class="btn" onclick="getNewMessage()">Give Me Another One</button>
     </div>
+
     <script>
         const kelimeler = [
             "You are doing so much better than you think you are. Keep going!",
@@ -84,11 +83,14 @@
             "A small progress is still progress. Every single step counts!",
             "You are strong, you are loved, and you are entirely enough."
         ];
+
         function getNewMessage() {
             const randomIndex = Math.floor(Math.random() * kelimeler.length);
             document.getElementById("msg").innerText = kelimeler[randomIndex];
         }
+
         getNewMessage();
     </script>
+
 </body>
 </html>
