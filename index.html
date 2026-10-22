@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bugünün Küçük Mutluluğu</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            color: #4a4a4a;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .message {
+            font-size: 20px;
+            color: #e91e63;
+            font-weight: bold;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #c2185b;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>✨ Bugünün Mesajı ✨</h1>
+        <div class="message" id="msg">Yükleniyor...</div>
+        <button class="btn" onclick="yeniKelimeGetir()">Başka Bir Mesaj Al</button>
+    </div>
+
+    <script>
+        // Müşterilerinizin göreceği kelimeler/cümleler (Burayı istediğiniz gibi değiştirebilirsiniz)
+        const kelimeler = [
+            "Bugün harika bir gün olacak, kendine inan!",
+            "Gülümsemen etrafındaki dünyayı güzelleştiriyor. 😊",
+            "Küçük adımlar büyük başarılara götürür, acele etme.",
+            "Sen sandığından çok daha güçlü ve değerlisin.",
+            "Bugün kendine kahve ısmarlamak ve dinlenmek için harika bir gün.",
+            "Dünya senin gibi nazik insanlara sahip olduğu için şanslı.",
+            "Her şey yoluna girecek, sadece nefes al ve ana odaklan. 🌸",
+            "Bugün birine sebepsiz yere gülümse, enerjin harika!",
+            "Unutma, her fırtınadan sonra gökkuşağı çıkar."
+        ];
+
+        function yeniKelimeGetir() {
+            const rastgeleIndeks = Math.floor(Math.random() * kelimeler.length);
+            document.getElementById("msg").innerText = kelimeler[rastgeleIndeks];
+        }
+
+        // Sayfa ilk açıldığında otomatik bir kelime gelsin
+        yeniKelimeGetir();
+    </script>
+
+</body>
+</html>
