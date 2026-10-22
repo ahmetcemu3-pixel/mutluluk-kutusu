@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bugünün Küçük Mutluluğu</title>
+    <title>Your Daily Reminder</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            /* Arka plan görseli */
+            background: url('https://unsplash.com') no-repeat center center fixed;
+            background-size: cover;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -17,75 +19,75 @@
             padding: 20px;
         }
         .card {
-            background: white;
+            background: rgba(255, 255, 255, 0.85); /* Arkası hafif şeffaf beyaz */
+            backdrop-filter: blur(10px); /* Arka planı hafif buğulama efekti */
             padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             max-width: 500px;
             width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
         h1 {
-            color: #4a4a4a;
+            color: #5c4d4d;
             font-size: 24px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            font-weight: 500;
         }
         .message {
-            font-size: 20px;
-            color: #e91e63;
-            font-weight: bold;
+            font-size: 21px;
+            color: #8c6239;
+            font-weight: 600;
             line-height: 1.6;
-            margin-bottom: 30px;
-            min-height: 80px;
+            margin-bottom: 35px;
+            min-height: 90px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         .btn {
-            background-color: #e91e63;
+            background-color: #8c6239;
             color: white;
             border: none;
-            padding: 12px 25px;
+            padding: 14px 30px;
             font-size: 16px;
             border-radius: 25px;
             cursor: pointer;
-            transition: 0.3s;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 15px rgba(140, 98, 57, 0.2);
         }
         .btn:hover {
-            background-color: #c2185b;
-            transform: scale(1.05);
+            background-color: #6d4a2a;
+            transform: translateY(-2px);
         }
     </style>
 </head>
 <body>
-
     <div class="card">
-        <h1>✨ Bugünün Mesajı ✨</h1>
-        <div class="message" id="msg">Yükleniyor...</div>
-        <button class="btn" onclick="yeniKelimeGetir()">Başka Bir Mesaj Al</button>
+        <h1>✨ Your Daily Reminder ✨</h1>
+        <div class="message" id="msg">Loading your reminder...</div>
+        <button class="btn" onclick="getNewMessage()">Give Me Another One</button>
     </div>
-
     <script>
-        // Müşterilerinizin göreceği kelimeler/cümleler (Burayı istediğiniz gibi değiştirebilirsiniz)
         const kelimeler = [
-            "Bugün harika bir gün olacak, kendine inan!",
-            "Gülümsemen etrafındaki dünyayı güzelleştiriyor. 😊",
-            "Küçük adımlar büyük başarılara götürür, acele etme.",
-            "Sen sandığından çok daha güçlü ve değerlisin.",
-            "Bugün kendine kahve ısmarlamak ve dinlenmek için harika bir gün.",
-            "Dünya senin gibi nazik insanlara sahip olduğu için şanslı.",
-            "Her şey yoluna girecek, sadece nefes al ve ana odaklan. 🌸",
-            "Bugün birine sebepsiz yere gülümse, enerjin harika!",
-            "Unutma, her fırtınadan sonra gökkuşağı çıkar."
+            "You are doing so much better than you think you are. Keep going!",
+            "Believe in yourself, because the world is a better place with you in it. ✨",
+            "Take a deep breath. You can handle whatever today brings.",
+            "You are worthy of all the beautiful things coming your way.",
+            "Don't forget to smile today; your energy is genuinely wonderful. 😊",
+            "Slow down, grab a warm drink, and be proud of how far you've come.",
+            "You have the power to create a beautiful day today.",
+            "Your potential is endless. Trust the timing of your life. 🌸",
+            "Be kind to yourself today. You are doing the best you can.",
+            "A small progress is still progress. Every single step counts!",
+            "You are strong, you are loved, and you are entirely enough."
         ];
-
-        function yeniKelimeGetir() {
-            const rastgeleIndeks = Math.floor(Math.random() * kelimeler.length);
-            document.getElementById("msg").innerText = kelimeler[rastgeleIndeks];
+        function getNewMessage() {
+            const randomIndex = Math.floor(Math.random() * kelimeler.length);
+            document.getElementById("msg").innerText = kelimeler[randomIndex];
         }
-
-        // Sayfa ilk açıldığında otomatik bir kelime gelsin
-        yeniKelimeGetir();
+        getNewMessage();
     </script>
-
 </body>
 </html>
